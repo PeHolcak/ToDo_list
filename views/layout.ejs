@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="styles/layout.css">
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap-grid.css">
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap/bootstrap.min.css">
+  <script src="styles/script.js"></script>
+  <title>Weap-2020_Holčák-Petr</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="navbar navbar-toggleable-xl navbar-expand bg-dark shadow-lm fixed-top">
+      <div class="container d-flex mx-2 justify-content-between col-md-12">
+        <h2 class="text-light col-md-9">ToDo App</h2>
+        <div class="col-md-3 d-flex flex-row justify-content-end">
+          <a href="/logout" id="logoutButton" class="py-2 px-3 d-none d-md-inline-block">Odhlásit</a>
+          <a href="json" id="jsonButton" class="py-2 px-3 d-none d-md-inline-block">JSON</a></div>
+      </div>
+    </nav>
+    <%- body %>
+  </div>
+
+</body>
+
+</html>

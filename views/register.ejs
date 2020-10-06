@@ -1,0 +1,32 @@
+<div class="margin-top margin-top">
+<% if (typeof success_msg!== 'undefined') { %>
+<% if(success_msg != ''){ %>
+  <div class="alert mt-3 mb-0 alert-success alert-dismissible fade show" role="alert">
+      <%= success_msg %>
+  </div>
+<% } %> 
+<% } %> 
+<% if (typeof error_msg!== 'undefined') { %>
+  <% if(error_msg != ''){ %>
+    <div class="alert mt-3 mb-0 alert-danger alert-dismissible fade show" role="alert">
+        <%= error_msg %>
+    </div>
+  <% } %> 
+  <% } %> 
+<div class="d-flex pt-5 flex-column">
+  <h2>Zaregistrujte se prosím:</h2>
+  <p id="infoText"></p>
+<form method="POST" action="/register">
+    <label for="jmeno">jméno:</label><br>
+    <input type="text" id="jmeno" name="name" value="např: Petr"><br>
+    <label for="email">email:</label><br>
+    <input type="email" id="email" name="email" value="petr.novak@gmail.com"><br>
+    <label for="heslo">heslo:</label><br>
+    <input type="password" id="heslo" name="password" value="123456789"><br>
+    <label for="heslo">heslo znovu:</label><br>
+    <input type="password" id="znovuHeslo" name="password2" value="123456789"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+  <a href="/login">Login</a>
+  </div>
+</div>

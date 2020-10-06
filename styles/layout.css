@@ -1,0 +1,50 @@
+html {
+    min-height: 100vh;
+  }
+  
+p {
+    font-size: 50pt;
+  }
+  body {
+    max-height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  .jumbotron{
+    background-color: rgba(0,0,0,0)!important;
+  }
+  #infoText{
+    color: red;
+  }
+  p {
+    font-family: verdana;
+    font-size: 20px;
+  }
+#novyTask{
+  display:none;
+}
+.margin-top{
+  margin-top: 62px !important;
+}
+section{
+  height: 100vh;
+  margin: 0px!important;
+  display: flex!important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.blueBackground{
+  background-color: blue!important;
+  color: white!important;
+}
+@media (max-width: 990px) {
+ #jsonButton{
+   display: block!important;
+ }
+ #logoutButton{
+   display: block!important;
+ }
+}

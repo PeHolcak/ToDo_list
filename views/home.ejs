@@ -1,0 +1,89 @@
+<div class="margin-top">
+    <div class="container pt-3">
+        <% if (typeof success_msg!== 'undefined') { %>
+        <% if(success_msg != ''){ %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= success_msg %>
+        </div>
+        <% } %>
+        <% } %>
+        <% if (typeof error_msg!== 'undefined') { %>
+        <% if(error_msg != ''){ %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= error_msg %>
+        </div>
+        <% } %>
+        <% } %>
+        <div class="col-md-12 d-inline-flex  flex-row">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="showDoneTasks" checked>
+                <label class="form-check-label" for="showDoneTasks">Vyřešené</label>
+            </div>
+            <div class="form-check ml-3">
+                <input type="checkbox" class="form-check-input" id="showActualTasks" checked>
+                <label class="form-check-label" for="showActualTasks">Aktuální</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-group">
+                    <% if (typeof data !== 'undefined') { %>
+                    <% if (typeof data.tasks !== 'undefined') { %>
+                    <% data.tasks.forEach(function(item){ %>
+                    <li class="list-group-item zobrazitPoznamky"><a href="<%=item.id%>"><%=item.name%></a></li>
+                    <% }); %>
+                    <% data.doneTasks.forEach(function(item){ %>
+                    <li class="list-group-item zobrazitHotovePoznamky"><a href="<%=item.id%>"
+                            class="zobrazitHotovePoznamky text-secondary stretched-link"><%=item.name%></a></li>
+                    <% }); %>
+                    <% } %>
+
+                    <li class="list-group-item btn btn-primary blueBackground"><a id="addButton" class="blueBackground" href="#">Přidat nový úkol</a></li>
+                </ul>
+            </div>
+            <% if (typeof data.shownTask !== 'undefined') { %>
+            <div class="col-md-9">
+                <% if(data.shownTask.done){ %>
+                <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                    <p class="mb-0">Tento úkol byl již vyřešen</p>
+                </div>
+                <% } %>
+                <div class="col-md-12" id="prohlizejTask">
+                    <h2 id="title"><%= data.shownTask.title%></h2>
+                    <p id="description"> <%= data.shownTask.description%></p>
+                    <p><a class="btn btn-primary ml-3" id="editButton" href="#" role="button">Upravit</a>
+                        <a class="btn btn-secondary ml-3" href="home/done/<%=data.shownTask._id%>"
+                            role="button">Hotovo</a>
+                            <a class="btn btn-danger ml-3"
+                            href="home/delete/<%=data.shownTask._id%>" role="button">Delete</a></p>
+
+                </div>
+                <p id="infoText"></p>
+                <div class="col-md-12" id="upravitTask" style="display: none;">
+                    <h4>Upravte prosím informace o úkolu</h4>
+                    <form method="POST" action="/home/edit/<%=data.shownTask._id%>">
+                        <label for="upravenyNadpis">Název:</label><br>
+                        <input type="text" id="upravenyNadpis" name="nadpis" value="Např. Domácí úkoly"><br>
+                        <label for="upravenyPopisek">Pois:</label><br>
+                        <textarea name="text" rows="5" cols="50" id="upravenyPopisek"
+                           >Popište svůj úkol</textarea><br><br>
+                        <input type="submit" value="Odeslat">
+                    </form>
+                </div>
+                <% } %>
+                <% } %>
+                <div class="col-md-12" id="novyTask">
+
+                    <form method="POST" action="/home/add">
+                        <label for="nadpis">Název:</label><br>
+                        <input type="text" id="nadpis" name="nadpis" value="Např. Domácí úkoly"><br>
+                        <label for="popisek">Pois:</label><br>
+                        <textarea name="text" rows="5" cols="50" id="popisek"
+                            >Popište svůj úkol</textarea><br><br>
+                        <input type="submit" value="Odeslat">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
